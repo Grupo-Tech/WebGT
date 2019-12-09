@@ -1,10 +1,16 @@
 asgiref==3.2.3
+bootstrap-admin==0.4.3
 defusedxml==0.6.0
 diff-match-patch==20181111
 Django==3.0
 django-ckeditor==5.8.0
+django-grappelli==2.13.2
 django-import-export==2.0
 django-js-asset==1.2.2
+django-material==1.6.0
+django-material-admin==1.6.7
+django-suit==2.0a1
+djangocms-admin-style==1.4.0
 et-xmlfile==1.0.1
 gunicorn==20.0.4
 jdcal==1.4.1
