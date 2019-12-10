@@ -24,7 +24,7 @@ class AutorAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 
 class PostResource(resources.ModelResource):
 	class Meta:
-		model = Autor
+		model = Post
 
 class PostAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 	search_fields = ['titulo','autor','categoria']
@@ -32,6 +32,17 @@ class PostAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 	resource_class = PostResource
 
 
+class ContactoResource(resources.ModelResource):
+	class Meta:
+		model = Contacto
+
+class ContactoAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+	search_fields = ['nombre','correo','asunto']
+	list_display = ('nombre','correo','asunto',)
+	resource_class = ContactoResource
+
+
 admin.site.register(Categoria,CategoriaAdmin)
 admin.site.register(Autor,AutorAdmin)
 admin.site.register(Post,PostAdmin)
+admin.site.register(Contacto,ContactoAdmin)

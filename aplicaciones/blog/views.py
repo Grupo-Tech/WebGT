@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post,Categoria
+from django.views.generic import View
+from .forms import ContactoForm
 
 def home(request):
 	posts = Post.objects.filter(
@@ -31,9 +33,21 @@ def Productos(request):
 			nombre__iexact = 'Productos'))
 	return render(request,'Productos.html',{'posts':posts})
 
-def Contactos(request):
-	posts = Post.objects.filter(
-		estado = True, 
-		categoria = Categoria.objects.get(
-			nombre__iexact = 'Contactos'))
-	return render(request,'Contactos.html',{'posts':posts})
+class FormularioContacto(View):
+    def get(self,request,*args,**kwargs):
+        form = ContactoForm()
+        contexto = {
+            'form':form,
+        }
+        return render(request,'Contactos.html',contexto)
+
+    def post(self,request,*args,**kwargs):
+        form = ContactoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('blog:index')
+        else:
+            contexto = {
+                'form':form,
+            }
+            return render(request,'Contactos.html',contexto)

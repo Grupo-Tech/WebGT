@@ -23,55 +23,78 @@ CONTACTANOS
 {% endblock titulo_spam %}
 
 {% block Contactos %}
-    <h1 align="center">CONTACTE CON NOSOTROS</h1>
-    <h4 align="center">Para mas información</h4>
-	<section class="contact" id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="title">
-                        <h3>Detalles Adicionales</h3>
-                    </div>
-                    <div class="content">
-                        <!-- Info-1 -->
-                        <div class="info">
-                            <i class="fas fa-mobile-alt"></i>
-                            <h4 class="d-inline-block">TELEFONOS :
-                                <br>
-                                <span>+595991333333 , +595991222222</span></h4>
-                        </div>
-                       
-                        <!-- Info-3 -->
-                        <div class="info">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <h4 class="d-inline-block">DIRECCIÓN :<br>
-                                <span>Peru y artigas, 350</span></h4>
-                        </div>
-                    </div>
+    <div class="site-section bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 mb-5">
+            <form method="post" class="p-5 bg-white">
+              {% csrf_token %}
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">Nombre</label>
+                  {{ form.nombre }}
                 </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="lname">Apellido</label>
+                  {{ form.apellidos }}
+                </div>
+              </div>
 
-                <div class="col-md-7">
-                    <form>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" placeholder="Nombre">
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="email" class="form-control" placeholder="Correo">
-                            </div>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" placeholder="Asunto">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" rows="5" id="comment" placeholder="Mensaje"></textarea>
-                        </div>
-                        <button class="btn btn-block" type="submit">ENVIAR</button>
-                    </form>
+              <div class="row form-group">
+
+                <div class="col-md-12">
+                  <label class="text-black" for="email">Correo</label>
+                  {{ form.correo }}
                 </div>
+              </div>
+
+              <div class="row form-group">
+
+                <div class="col-md-12">
+                  <label class="text-black" for="subject">Asunto</label>
+                  {{ form.asunto }}
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="message">Mensaje</label>
+                  {{ form.mensaje }}
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <button type="submit" class="btn btn-primary py-2 px-4 text-white">ENVIAR </button>
+                </div>
+              </div>
+
+
+            </form>
+          </div>
+          <div class="col-md-5">
+
+            <div class="p-4 mb-3 bg-white">
+              <p class="mb-0 font-weight-bold">Direccion</p>
+              <p class="mb-4">{{ web.direccion }}</p>
+
+              <p class="mb-0 font-weight-bold">Teléfono</p>
+              <p class="mb-4"><a href="#">{{ web.telefono }}</a></p>
+
+              <p class="mb-0 font-weight-bold">Correo</p>
+              <p class="mb-0"><a href="#">{{ web.email }}</a></p>
+
             </div>
+
+            <div class="p-4 mb-3 bg-white">
+              <h3 class="h5 text-black mb-3">Nosotros</h3>
+              <p>{{ web.nosotros }}</p>
+            </div>
+
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
 {% endblock Contactos %}
 
 

@@ -1,6 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 
+
 class Categoria(models.Model):
 	id = models.AutoField(primary_key = True)
 	nombre = models.CharField('Nombre de la Categoria', max_length = 100, null = False, blank = False)
@@ -47,4 +48,18 @@ class Post(models.Model):
 
 	def __str__(self):
 		return self.titulo
+
+class Contacto(models.Model):
+    nombre = models.CharField('Nombre', max_length = 100, null = False, blank = False)
+    apellidos = models.CharField('Apellidos', max_length = 150)
+    correo = models.EmailField('Correo Electrónico', max_length = 200)
+    asunto = models.CharField('Asunto', max_length = 100,null = False, blank = False)
+    mensaje = models.TextField('Mensaje')
+
+    class Meta:
+        verbose_name = 'Mensaje'
+        verbose_name_plural = 'Mensajes'
+
+    def __str__(self):
+        return self.asunto
 

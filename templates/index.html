@@ -24,7 +24,7 @@
   <link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
 </head>
 
-<body>
+<body class="site-section bg-light">
  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
@@ -71,16 +71,15 @@
     </div>
   </header>
   <div>
-
   {% block detalles %}  
-    <header>
+    <div class="site-section bg-light">
       {% if posts %}
         {% for post in posts %}
           <h1 align="center">{{ post.titulo }}</h1>
           <p> {{ post.contenido | safe }} </p>
         {% endfor %}
       {% endif %}
-    </header>
+    </div>
   </div>
  {% endblock detalles %}
 
@@ -88,11 +87,13 @@
   {% endblock Contactos %}
 
   <!-- Footer -->
-  <footer class = "page-footer your-color-class">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <p class="copyright text-muted">Grupo Tech. | Somos su socio tecnológico |</p>
+  <footer class="site-section bg-light">
+    <div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 mb-50 mx-auto">
+            <p class="copyright text-muted">Grupo Tech. | Somos su socio tecnológico |</p>
+          </div>
         </div>
       </div>
     </div>
