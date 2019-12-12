@@ -18,6 +18,10 @@
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
+  <!-- Start of  Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=4dd974c8-5525-4c60-9d98-1d149ce2badc"> </script>
+  <!-- End of  Zendesk Widget script -->
+
   <!-- Estilos personalizados -->
   <link href="{% static 'css/contactos.css' %}" rel="stylesheet">
   <link href="{% static 'css/chat.css' %}" rel="stylesheet">
@@ -100,7 +104,7 @@
   </footer>
 
 {% block chat %}
-  <!--  CHAT  -->
+  <!--  CHAT
   <div class="fabs">
     <div class="chat">
       <div class="chat_header">
@@ -130,10 +134,10 @@
                 <i class="zmdi zmdi-account"></i>
               </div>¡Bienvenido!, en breve responderemos a tu consulta.</span>
 
-       <!--   <span class="chat_msg_item chat_msg_item_user">
+         <span class="chat_msg_item chat_msg_item_user">
               <div class="chat_avatar">
                 <i class="zmdi zmdi-account"></i>
-              </div>Buenas..</span> -->
+              </div>Buenas..</span>
       </div>
       <div class="fab_field">
         <a id="fab_send" class="fab"><i class="zmdi zmdi-mail-send"></i></a>
@@ -141,7 +145,8 @@
       </div>
     </div>
     <a id="prime" class="fab"><i class="prime zmdi zmdi-plus"></i></a>
-  </div>
+  </div>  -->
+
 {% endblock chat %}
 
   <!-- Bootstrap JavaScript -->
