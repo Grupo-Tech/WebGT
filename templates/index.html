@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -24,8 +23,7 @@
 
   <!-- Estilos personalizados -->
   <link href="{% static 'css/contactos.css' %}" rel="stylesheet">
-  <link href="{% static 'css/chat.css' %}" rel="stylesheet">
-  <link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/clean-blog.css' %}" rel="stylesheet">
 </head>
 
 <body class="site-section bg-light">
@@ -74,21 +72,30 @@
       </div>
     </div>
   </header>
-  <div>
-  {% block detalles %}  
-    <div class="site-section bg-light">
-      {% if posts %}
-        {% for post in posts %}
-          <h1 align="center">{{ post.titulo }}</h1>
-          <p> {{ post.contenido | safe }} </p>
-        {% endfor %}
-      {% endif %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-15 col-md-10 mx-auto">
+        <div>
+        {% block post %}
+        {% endblock post %}
+        {% block detalles %}  
+          <div class="site-section bg-light">
+            {% if posts %}
+              {% for post in posts %}
+                <h1 align="center">{{ post.titulo }}</h1>
+                <p> {{ post.contenido | safe }} </p>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+        {% endblock detalles %}
+
+        {% block Contactos %}
+        {% endblock Contactos %}
+      </div>
     </div>
   </div>
- {% endblock detalles %}
-
-  {% block Contactos %}
-  {% endblock Contactos %}
 
   <!-- Footer -->
   <footer class="site-section bg-light">
@@ -104,48 +111,20 @@
   </footer>
 
 {% block chat %}
-  <!--  CHAT
-  <div class="fabs">
-    <div class="chat">
-      <div class="chat_header">
-        <span id="chat_head">Contáctate con nosotros</span>
-        <div class="chat_loader"></div>
-        <div class="chat_option"><i class="zmdi zmdi-more-vert"></i>
-          <ul>
-            <li><span class="chat_color" style="border:solid 5px #607d8b" color="blue-grey"></span></li>
-            <li><span class="chat_color" style="border:solid 5px #2196F3" color="blue"></span></li>
-            <li><span class="chat_color" style="border:solid 5px #00bcd4" color="cyan"></span></li>
-            <li><span class="chat_color" style="border:solid 5px #4caf50" color="green"></span></li>
-            <li><span class="chat_color" style="border:solid 5px #8bc34a" color="light-green"></span></li>
-            <li><span class="chat_color" style="border:solid 5px #cddc39" color="lime"></span></li>
-            <li><span class="chat_color" style="border:solid 5px #ffc107" color="amber"></span></li>
-            <li><span class="chat_color" style="border:solid 5px #ff5722" color="deep-orange"></span></li>
-          </ul>
-        </div>
-      </div>
-    <div class="chat_login">
-          <a id="chat_send_email" class="fab"><i class="zmdi zmdi-email"></i></a>
-          <input id="chat_log_email" placeholder="Ingrese un correo"></input>
-      <div class="chat_login_alert"></div>
-      </div>
-      <div id="chat_converse" class="chat_converse">
-        <span class="chat_msg_item chat_msg_item_admin">
-              <div class="chat_avatar">
-                <i class="zmdi zmdi-account"></i>
-              </div>¡Bienvenido!, en breve responderemos a tu consulta.</span>
 
-         <span class="chat_msg_item chat_msg_item_user">
-              <div class="chat_avatar">
-                <i class="zmdi zmdi-account"></i>
-              </div>Buenas..</span>
-      </div>
-      <div class="fab_field">
-        <a id="fab_send" class="fab"><i class="zmdi zmdi-mail-send"></i></a>
-        <textarea id="chatSend" name="chat_message" placeholder="Escriba el mensaje" class="chat_field chat_message"></textarea>
-      </div>
-    </div>
-    <a id="prime" class="fab"><i class="prime zmdi zmdi-plus"></i></a>
-  </div>  -->
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5df39ef9d96992700fcc28e0/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
 
 {% endblock chat %}
 
@@ -154,7 +133,6 @@
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <!-- Scripts personalizados -->
   <script src="{% static 'js/clean-blog.min.js' %}"></script>
-  <script src="{% static 'js/chat.js' %}"></script>
 
 
 </body>

@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+
+{% block titulo %}
+	{{ detalle_post.titulo }}
+{% endblock titulo %}
+
+
+
+{% block imagen %}
+	{{ detalle_post.imagen }}
+{% endblock imagen %}
+
+
+
+{% block titulo_principal %}
+	<h1>{{ detalle_post.titulo }}</h1>
+{% endblock titulo_principal %}
+
+
+{% block detalles %}
+	<h2 align="center">{{ detalle_post.descripcion }}</h2>
+{% endblock detalles %}
+
+
+{% block titulo_spam %}
+{% endblock titulo_spam %}
+
+
+
+{% block Contactos %}
+	{{ detalle_post.contenido | safe }}
+{% endblock Contactos %}
+
+
+
+{% block chat %}
+{% endblock chat %}

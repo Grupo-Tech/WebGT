@@ -17,5 +17,41 @@ NUESTROS PRODUCTOS
 {% block titulo_spam %}
 {% endblock titulo_spam %}
 
+
+{% block detalles %}
+{% endblock detalles %}
+
+
+{% block Contactos %}
+<div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+        {% if posts %}
+	        {% for post in posts %}
+	          <div class="post-preview">
+	            <a href="{% url 'blog:detalle_post' post.slug %}">
+	              <h2 class="post-title">
+	                {{ post.titulo }}
+	              </h2>
+	              <h3 class="post-subtitle">
+	                {{ post.descripcion }}
+	              </h3>
+	            </a>
+	            <p class="post-meta">{{ post.fecha_creacion }}</p>
+	          </div>
+	          <hr>
+	    	{% endfor %}
+       	{% else %}
+       		<h1>No existen Productos registrados!.</h1>
+       	{% endif %}
+          <!-- Pager -->
+          <div class="clearfix">
+            <a class="btn btn-primary float-right" href="#">Pagina Siguente &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock Contactos %}
+
 {% block chat %}
 {% endblock chat %}

@@ -33,10 +33,10 @@ class Autor(models.Model):
 class Post(models.Model):
 	id = models.AutoField(primary_key =True)
 	titulo = models.CharField('Titulo', max_length = 90, null = False, blank = False)
-	#slug = models.CharField('Slug', max_length = 100, null = False, blank = False)
-	#descripcion = models.CharField('Descripcion', max_length = 110, blank = False, null = False)
+	slug = models.CharField('Slug', max_length = 100, null = True, blank = True)
+	descripcion = models.CharField('Descripcion', max_length = 110, blank = True, null = True)
 	contenido = RichTextField()
-	#imagen = models.URLField(max_length = 255, blank = False, null = False)
+	imagen = models.URLField(max_length = 255, blank = True, null = True)
 	autor = models.ForeignKey(Autor, on_delete = models.CASCADE)
 	categoria = models.ForeignKey(Categoria, on_delete = models.CASCADE)
 	estado = models.BooleanField('Publicado/No Publicado', default = True)

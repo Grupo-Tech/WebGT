@@ -13,4 +13,5 @@ urlpatterns = [
 	path('Clientes/',Clientes, name = 'Clientes'),
 	path('Productos/',Productos, name = 'Productos'),
 	path('Contactos/', FormularioContacto.as_view(), name = 'Contactos'),
+	path('<slug:slug>/',detallePost, name = 'detalle_post'),
 ]

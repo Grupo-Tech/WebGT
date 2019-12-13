@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Post,Categoria
 from django.views.generic import View
 from .forms import ContactoForm
+from django.shortcuts import get_object_or_404
 
 def home(request):
 	posts = Post.objects.filter(
@@ -32,6 +33,10 @@ def Productos(request):
 		categoria = Categoria.objects.get(
 			nombre__iexact = 'Productos'))
 	return render(request,'Productos.html',{'posts':posts})
+
+def detallePost(request,slug):
+    post = get_object_or_404(Post,slug =slug)
+    return render(request,'post.html',{'detalle_post':post})
 
 class FormularioContacto(View):
     def get(self,request,*args,**kwargs):
