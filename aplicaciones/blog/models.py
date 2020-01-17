@@ -57,8 +57,8 @@ class Contacto(models.Model):
     mensaje = models.TextField('Mensaje')
 
     class Meta:
-        verbose_name = 'Mensaje'
-        verbose_name_plural = 'Mensajes'
+        verbose_name = 'Mensajes'
+        verbose_name_plural = 'Mensajes Recibidos'
 
     def __str__(self):
         return self.asunto
