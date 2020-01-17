@@ -27,7 +27,7 @@ class PostResource(resources.ModelResource):
 		model = Post
 
 class PostAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-	search_fields = ['titulo','autor','categoria']
+	search_fields = ['titulo']
 	list_display = ('titulo','autor','categoria','estado','fecha_creacion',)
 	resource_class = PostResource
 
