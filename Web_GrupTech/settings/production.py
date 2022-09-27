@@ -4,7 +4,7 @@ from .base import *
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'grupotech.herokuapp.com']
-#ALLOWED_HOSTS = ['grupotech.herokuapp.com']
+DISABLE_COLLECTSTATIC = 1
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
