@@ -15,8 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-IS_HEROKU = "DYNO" in os.environ
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -24,8 +22,7 @@ IS_HEROKU = "DYNO" in os.environ
 SECRET_KEY = 'bg^65$ze#w!%rfufx-(l^lpuchk786gfppoy!l=)b3mj1ig^a('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if not IS_HEROKU:
-    DEBUG = True
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
