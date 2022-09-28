@@ -61,6 +61,7 @@ class FormularioContacto(View):
         form = ContactoForm(request.POST)
         if form.is_valid():
             form.save()
+            # antes de retornar deberia mostrar que el mensaje se envió con exito
             return redirect('blog:index')
         else:
             contexto = {
