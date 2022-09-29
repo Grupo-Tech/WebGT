@@ -7,19 +7,29 @@ from django.core.paginator import Paginator
 
 
 def home(request):
-    posts = Post.objects.filter(
-        estado=True,
-        categoria=Categoria.objects.get(
-            nombre__iexact='Inicio'))
+    try:
+        posts = Post.objects.filter(
+            estado=True,
+            categoria=Categoria.objects.get(
+                nombre__iexact='Inicio'))
+    except Categoria.DoesNotExist:
+        posts = Post.objects.filter(
+            estado=True,
+            categoria=None)
 
     return render(request, 'index.html', {'posts': posts})
 
 
 def Acerca_de(request):
-    posts = Post.objects.filter(
-        estado=True,
-        categoria=Categoria.objects.get(
-            nombre__iexact='Acerca de'))
+    try:
+        posts = Post.objects.filter(
+            estado=True,
+            categoria=Categoria.objects.get(
+                nombre__iexact='Acerca de'))
+    except Categoria.DoesNotExist:
+        posts = Post.objects.filter(
+            estado=True,
+            categoria=None)
 
     return render(request, 'Acerca_de.html', {'posts': posts})
 
