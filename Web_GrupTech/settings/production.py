@@ -5,7 +5,8 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 # IS_HEROKU = "DYNO" in os.environ
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-# X_FRAME_OPTIONS = SAMEORIGIN # DENY # 'web.grupo-tech.com'
+X_FRAME_OPTIONS = 'web.grupo-tech.com'
+# SAMEORIGIN #DENY
 DEBUG = False
 CSRF_TRUSTED_ORIGINS = ['https://web.grupo-tech.com']
 
