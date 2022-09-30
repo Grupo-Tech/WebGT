@@ -4,6 +4,8 @@ IS_HEROKU = "DYNO" in os.environ
 # SECURITY WARNING: don't run with debug turned on in production!
 if not IS_HEROKU:
     DEBUG = True
+else:
+    X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['127.0.0.1', 'grupotech.herokuapp.com']
 
