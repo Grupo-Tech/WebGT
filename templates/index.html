@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>{% block titulo %}Grupo Tech | Soluciones Informaticas{% endblock titulo %}</title>
-  <link rel="shortcut icon" href="http://www.grupo-tech.com/img/favicon.ico" type="image/x-icon">
+  <title>{% block titulo %}Grupo Tech | Soluciones Informáticas{% endblock titulo %}</title>
+  <!--link rel="shortcut icon" href="http://www.grupo-tech.com/img/favicon.ico" type="image/x-icon"-->
+  <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
   <!-- Bootstrap CSS -->
 
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -120,7 +121,7 @@
         <a href="{% url 'blog:acerca_de' %}"> Acerca de</a> |
         <a href="{% url 'blog:Clientes' %}"> Clientes</a> |
         <a href="{% url 'blog:Productos' %}"> Productos</a> |
-        <a href="{% url 'blog:Contactos' %}"> Contactos</a>
+        <a href="{% url 'blog:Contactos' %}"> Contacto</a>
       </p>
     </div>
   </footer>
