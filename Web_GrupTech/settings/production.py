@@ -7,7 +7,7 @@ IS_HEROKU = "DYNO" in os.environ
 if not IS_HEROKU:
     DEBUG = True
 else:
-    X_FRAME_OPTIONS = 'SAMEORIGIN'
+    X_FRAME_OPTIONS = 'web.grupo-tech.com'
 
 ALLOWED_HOSTS = ['127.0.0.1', 'grupotech.herokuapp.com', 'web.grupo-tech.com']
 
