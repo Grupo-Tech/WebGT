@@ -2,12 +2,13 @@ from .base import *
 from django.http import HttpResponse
 from django.views.decorators.clickjacking import xframe_options_exempt
 
-# IS_HEROKU = "DYNO" in os.environ
+IS_HEROKU = "DYNO" in os.environ
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-X_FRAME_OPTIONS = 'web.grupo-tech.com'
-# SAMEORIGIN #DENY
 DEBUG = False
+
+X_FRAME_OPTIONS = 'web.grupo-tech.com'
+# Las opciones son SAMEORIGIN o DENY, pero lo anterior es para que funcione con redirect
+
 CSRF_TRUSTED_ORIGINS = ['https://web.grupo-tech.com']
 
 ALLOWED_HOSTS = ['127.0.0.1', 'grupotech.herokuapp.com', 'web.grupo-tech.com']

@@ -4,6 +4,7 @@ from django.views.generic import View
 from .forms import ContactoForm
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator
+from django.contrib import messages
 
 
 def home(request):
@@ -72,9 +73,13 @@ class FormularioContacto(View):
         if form.is_valid():
             form.save()
             # antes de retornar deberia mostrar que el mensaje se envió con exito
-            return redirect('blog:index')
+            # success = form.errors['success']
+            messages.success(request, 'Su mensaje se envió correctamente. Gracias por contactarnos.')
+            # return redirect('blog:index')
+            return redirect('blog:Contactos')
         else:
             contexto = {
                 'form': form,
             }
+            messages.error(request, 'Invalid form submission.')
             return render(request, 'Contactos.html', contexto)
