@@ -1,4 +1,6 @@
 from .base import *
+from django.http import HttpResponse
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 IS_HEROKU = "DYNO" in os.environ
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -7,7 +9,7 @@ if not IS_HEROKU:
 else:
     X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'grupotech.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'grupotech.herokuapp.com', 'web.grupo-tech.com']
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -29,3 +31,8 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+
+@xframe_options_exempt
+def ok_to_load_in_a_frame(request):
+    return HttpResponse("This page is safe to load in a frame on any site.")
